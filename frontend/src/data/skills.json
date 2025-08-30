@@ -1,0 +1,36 @@
+{
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": ["JavaScript", "TypeScript", "Python", "Java", "C#", "PHP"]
+    },
+    {
+      "category": "Frontend Development",
+      "items": ["React.js", "Vue.js", "Angular", "HTML5", "CSS3", "Sass/SCSS", "Bootstrap", "Tailwind CSS"]
+    },
+    {
+      "category": "Backend Development",
+      "items": ["Node.js", "Express.js", "Nest.js", "Django", "Spring Boot", ".NET Core", "Laravel"]
+    },
+    {
+      "category": "Database & ORM",
+      "items": ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Mongoose", "Sequelize", "Entity Framework"]
+    },
+    {
+      "category": "Mobile Development",
+      "items": ["React Native", "Flutter", "Ionic", "Progressive Web Apps"]
+    },
+    {
+      "category": "DevOps & Cloud",
+      "items": ["Docker", "Kubernetes", "AWS", "Azure", "Google Cloud", "CI/CD", "Jenkins", "GitLab CI"]
+    },
+    {
+      "category": "Testing & Quality",
+      "items": ["Jest", "Mocha", "Chai", "Cypress", "Selenium", "SonarQube", "ESLint", "Prettier"]
+    },
+    {
+      "category": "Tools & Platforms",
+      "items": ["Git", "VS Code", "Postman", "Figma", "Jira", "Confluence", "Slack", "Teams"]
+    }
+  ]
+}
