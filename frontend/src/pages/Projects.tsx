@@ -40,7 +40,7 @@ const translations = {
         description: 'This portfolio website was developed using React, TypeScript, and modern web technologies.',
         technologies: ['React.js', 'TypeScript', 'CSS3', 'Framer Motion'],
         image: '/photos/portfolio.png',
-        githubUrl: 'https://github.com/yakuphan/portfolio',
+        githubUrl: 'https://github.com/yakuphankucukkesim/yakuphan-portfolio',
         category: 'web'
       },
       {
