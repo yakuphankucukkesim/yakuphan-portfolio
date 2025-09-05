@@ -1,65 +1,62 @@
-<<<<<<< HEAD
 # yakuphan-portfolio
 This portfolio website was developed using React, TypeScript, and modern web technologies.
 =======
-# Yakuphan Kucukkesim Portfolio
+# Yakuphan Küçükkesim Portfolio
 
-Modern ve responsive kişisel portfolyo web sitesi. React, TypeScript ve Framer Motion ile geliştirildi.
+A modern and responsive personal portfolio website. Built with React, TypeScript, and Framer Motion.
 
 ## 🚀 Demo
 
 **Live Site**: [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
 
-## ✨ Özellikler
+## Features
+🎨 Modern and responsive design
+📱 Mobile friendly
+🎭 Framer Motion animations
+🌙 Dark theme
+📄 CV download option
+📧 Contact form
+🚀 Static site (fast loading)
 
-- 🎨 Modern ve responsive tasarım
-- 📱 Mobil uyumlu
-- 🎭 Framer Motion animasyonları
-- 🌙 Dark theme
-- 📄 CV indirme özelliği
-- 📧 İletişim formu
-- 🚀 Statik site (hızlı yükleme)
+## 🛠️ Technologies
+Frontend: React 18, TypeScript, CSS3
+Animations: Framer Motion
+Icons: React Icons
+Routing: React Router DOM
+Hosting: Render.com
 
-## 🛠️ Teknolojiler
-
-- **Frontend**: React 18, TypeScript, CSS3
-- **Animasyonlar**: Framer Motion
-- **İkonlar**: React Icons
-- **Routing**: React Router DOM
-- **Hosting**: Render.com
-
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 frontend/
 ├── src/
-│   ├── components/     # Yeniden kullanılabilir bileşenler
-│   ├── pages/         # Sayfa bileşenleri
-│   ├── contexts/      # React context'leri
-│   └── utils/         # Yardımcı fonksiyonlar
-├── public/            # Statik dosyalar
-└── build/             # Production build
+│   ├── components/     # Reusable components
+│   ├── pages/          # Page components
+│   ├── contexts/       # React contexts
+│   └── utils/          # Helper functions
+├── public/             # Static files
+└── build/              # Production build
 ```
 
-## 🚀 Yerel Geliştirme
+## 🚀 Local Development
 
-### Gereksinimler
+### Requirements
 - Node.js 18+
 - npm
 
-### Kurulum
+### Setup
 ```bash
-# Repository'yi klonlayın
+# Clone the repository
 git clone https://github.com/yakuphan/yakuphan-portfolio.git
 cd yakuphan-portfolio
 
-# Frontend klasörüne gidin
+# Go to frontend folder
 cd frontend
 
-# Bağımlılıkları yükleyin
+# Install dependencies
 npm install
 
-# Geliştirme sunucusunu başlatın
+# Start development server
 npm start
 ```
 
@@ -68,39 +65,39 @@ npm start
 # Production build
 npm run build
 
-# Build'i test edin
+# Test the build
 npm run test
 ```
 
-## 🌐 Yayınlama
+## 🌐 Deployment
 
-### Render.com (Önerilen)
-1. GitHub reponuzu Render'a bağlayın
-2. **Static Site** olarak yapılandırın
+### Render.com (Recommended)
+1. Connect your GitHub repo to Render
+2. Configure as **Static Site**
 3. **Build Command**: `npm run build`
 4. **Publish Directory**: `build`
-5. Custom domain ekleyin: `yakuphankucukkesim.com`
+5. Add custom domain: `yakuphankucukkesim.com`
 
-### Diğer Platformlar
-- **Netlify**: `npm run build` → `build/` klasörünü sürükleyin
-- **Vercel**: GitHub entegrasyonu ile otomatik deploy
-- **GitHub Pages**: `gh-pages` branch'e deploy
+### Other Platforms
+- **Netlify**: Run `npm run build` → drag & drop the `build/` folder
+- **Vercel**: Automatic deploy via GitHub integration
+- **GitHub Pages**: Deploy to `gh-pages` branch
 
-## 📝 İçerik Güncelleme
+## 📝 Content Updates
 
-### Projeler
-`src/pages/Projects.tsx` dosyasındaki `projects` array'ini düzenleyin.
+### Projects
+Edit the `projects` array in `src/pages/Projects.tsx`
 
-### Hakkımda
-`src/pages/About.tsx` dosyasındaki statik içeriği güncelleyin.
+### About
+Update static content in `src/pages/About.tsx`
 
-### İletişim
-`src/pages/Contact.tsx` dosyasındaki iletişim bilgilerini değiştirin.
+### Contact
+Change contact details in `src/pages/Contact.tsx`
 
-## 🎨 Özelleştirme
+## 🎨 Customization
 
-### Renkler
-`src/index.css` dosyasındaki CSS değişkenlerini düzenleyin:
+### Colors
+Edit CSS variables in `src/index.css`:
 
 ```css
 :root {
@@ -111,12 +108,12 @@ npm run test
 }
 ```
 
-### Fontlar
-Google Fonts'tan yeni font ekleyin ve `src/index.css`'de import edin.
+### Fonts
+Add new fonts from Google Fonts and import them in `src/index.css`
 
-## 📱 Responsive Tasarım
+## 📱 Responsive Design
 
-Site tüm cihazlarda optimize edilmiştir:
+The site is optimized for all devices:
 - 📱 Mobile: 320px+
 - 📱 Tablet: 768px+
 - 💻 Desktop: 1024px+
@@ -127,19 +124,19 @@ Site tüm cihazlarda optimize edilmiştir:
 - 📦 Bundle Size: < 500KB
 - 🎯 Core Web Vitals: Optimized
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit yapın (`git commit -m 'Add amazing feature'`)
-4. Push yapın (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+1. Fork the repo
+2. Create a feature branch (git checkout -b feature/amazing-feature)
+3. Commit changes (git commit -m 'Add amazing feature')
+4. Push to branch (git push origin feature/amazing-feature)
+5. Open a Pull Request
 
-## 📄 Lisans
+## 📄 License
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+This project is licensed under the MIT License.
 
-## 📞 İletişim
+## 📞 Contact
 
 - **Website**: [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
 - **Email**: contact@yakuphankucukkesim.com
@@ -148,5 +145,5 @@ Bu proje MIT lisansı altında lisanslanmıştır.
 
 ---
 
-⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+⭐ If you liked this project, don’t forget to give it a star!
 >>>>>>> 7e182d56 (First commit)
