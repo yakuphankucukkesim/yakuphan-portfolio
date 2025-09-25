@@ -7,7 +7,7 @@ A modern and responsive personal portfolio website. Built with React, TypeScript
 
 ## 🚀 Demo
 
-**Live Site**: [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
+[Live Site](https://resonora-ai.vercel.app)
 
 ## Features
 🎨 Modern and responsive design
