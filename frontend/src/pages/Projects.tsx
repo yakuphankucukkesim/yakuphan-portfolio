@@ -60,7 +60,7 @@ const translations = {
         category: "web",
       },
       {
-        id: 5,
+        id: 4,
         title: "Fitness Application",
         description:
           "Eat&Move is an AI-powered sports app that personalizes workouts and nutrition while fostering community through social features that connect users with like-minded fitness enthusiasts.",
@@ -71,7 +71,7 @@ const translations = {
         category: "mobile",
       },
       {
-        id: 6,
+        id: 5,
         title: "AI-based Podcast Clipper",
         description:
           "Resonora AI is an AI tool that automatically clips podcast content and adds subtitles.",
@@ -85,8 +85,9 @@ const translations = {
           "Modal",
           "Inngest",
         ],
-        image: "/photos/resonora.jpg",
+        image: "/photos/resonora.png",
         githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
+        websiteUrl: 'https://resonora-ai.vercel.app',
         category: "mobile",
       },
     ],
@@ -141,7 +142,7 @@ const translations = {
         category: "web",
       },
       {
-        id: 5,
+        id: 4,
         title: "Fitness Uygulaması",
         description:
           "Eat&Move, yapay zeka destekli bir spor uygulamasıdır; kişiselleştirilmiş antrenman ve beslenme sunar, sosyal özelliklerle kullanıcıları benzer spor tutkunlarıyla buluşturur.",
@@ -152,7 +153,7 @@ const translations = {
         category: "mobile",
       },
       {
-        id: 6,
+        id: 5,
         title: "Yapay Zekâ Tabanlı Podcast Kırpıcı",
         description:
           "Resonora AI, podcast içeriklerini otomatik olarak kırpan ve altyazı ekleyen bir yapay zekâ aracıdır.",
@@ -166,7 +167,7 @@ const translations = {
           "Modal",
           "Inngest",
         ],
-        image: "/photos/resonora.jpg",
+        image: "/photos/resonora.png",
         githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
         websiteUrl: "https://resonora-ai.vercel.app",
         category: "mobile",
