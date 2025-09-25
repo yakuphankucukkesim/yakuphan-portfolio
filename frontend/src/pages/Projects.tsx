@@ -1,118 +1,189 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiCode, FiDatabase, FiSmartphone } from 'react-icons/fi';
-import { useLanguage } from '../contexts/LanguageContext';
-import './Projects.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FiGithub,
+  FiExternalLink,
+  FiCode,
+  FiDatabase,
+  FiSmartphone,
+} from "react-icons/fi";
+import { useLanguage } from "../contexts/LanguageContext";
+import "./Projects.css";
 
 const translations = {
   en: {
     pageTitle: "Projects",
     pageDescription: "Projects and Technologies Overview",
     categories: [
-      { key: 'all', label: 'All', icon: <FiCode /> },
-      { key: 'web', label: 'Web', icon: <FiCode /> },
-      { key: 'mobile', label: 'Mobile', icon: <FiSmartphone /> },
-      { key: 'api', label: 'API', icon: <FiDatabase /> }
+      { key: "all", label: "All", icon: <FiCode /> },
+      { key: "web", label: "Web", icon: <FiCode /> },
+      { key: "mobile", label: "Mobile", icon: <FiSmartphone /> },
+      { key: "api", label: "API", icon: <FiDatabase /> },
     ],
     noProjects: "There are no projects in this category yet.",
     projects: [
       {
         id: 1,
-        title: 'Notepad Application',
-        description: 'Developed a cross-platform note-taking mobile application during my internship using React Native (frontend), Node.js (backend), and MongoDB (database).',
-        technologies: ['React Native', 'Node.js', 'MongoDB'],
-        image: '/photos/notepad.png',
-        githubUrl: 'https://github.com/yakuphankucukkesim/NotePadProject',
-        category: 'mobile'
+        title: "Notepad Application",
+        description:
+          "Developed a cross-platform note-taking mobile application during my internship using React Native (frontend), Node.js (backend), and MongoDB (database).",
+        technologies: ["React Native", "Node.js", "MongoDB"],
+        image: "/photos/notepad.png",
+        githubUrl: "https://github.com/yakuphankucukkesim/NotePadProject",
+        category: "mobile",
       },
       {
         id: 2,
-        title: 'E-Commerce Website',
-        description: 'Developed a full-stack e-commerce web application during my internship using React.js (frontend), Nest.js (backend), and MongoDB (database).',
-        technologies: ['React.js', 'Nest.js', 'MongoDB', 'Docker Swarm', 'TypeScript'],
-        image: '/photos/ecommercess.png',
-        githubUrl: 'https://github.com/yakuphankucukkesim/e-commerce-website.git',
-        category: 'web'
+        title: "E-Commerce Website",
+        description:
+          "Developed a full-stack e-commerce web application during my internship using React.js (frontend), Nest.js (backend), and MongoDB (database).",
+        technologies: [
+          "React.js",
+          "Nest.js",
+          "MongoDB",
+          "Docker Swarm",
+          "TypeScript",
+        ],
+        image: "/photos/ecommercess.png",
+        githubUrl:
+          "https://github.com/yakuphankucukkesim/e-commerce-website.git",
+        category: "web",
       },
       {
         id: 3,
-        title: 'Portfolio Website',
-        description: 'This portfolio website was developed using React, TypeScript, and modern web technologies.',
-        technologies: ['React.js', 'TypeScript', 'CSS3', 'Framer Motion'],
-        image: '/photos/portfolio.png',
-        githubUrl: 'https://github.com/yakuphankucukkesim/yakuphan-portfolio',
-        category: 'web'
+        title: "Portfolio Website",
+        description:
+          "This portfolio website was developed using React, TypeScript, and modern web technologies.",
+        technologies: ["React.js", "TypeScript", "CSS3", "Framer Motion"],
+        image: "/photos/portfolio.png",
+        githubUrl: "https://github.com/yakuphankucukkesim/yakuphan-portfolio",
+        category: "web",
       },
       {
         id: 5,
-        title: 'Fitness Application',
-        description: 'Eat&Move is an AI-powered sports app that personalizes workouts and nutrition while fostering community through social features that connect users with like-minded fitness enthusiasts.',
-        technologies: ['React Native', 'MongoDB', 'Python', 'Figma'],
-        image: '/photos/Team9.jpg',
-        githubUrl: 'https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041',
-        category: 'mobile'
+        title: "Fitness Application",
+        description:
+          "Eat&Move is an AI-powered sports app that personalizes workouts and nutrition while fostering community through social features that connect users with like-minded fitness enthusiasts.",
+        technologies: ["React Native", "MongoDB", "Python", "Figma"],
+        image: "/photos/Team9.jpg",
+        githubUrl:
+          "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
+        category: "mobile",
       },
-    ]
+      {
+        id: 6,
+        title: "AI-based Podcast Clipper",
+        description:
+          "Resonora AI is an AI tool that automatically clips podcast content and adds subtitles.",
+        technologies: [
+          "Python",
+          "Next.js",
+          "AWS",
+          "Stripe",
+          "Tailwind",
+          "TS",
+          "Modal",
+          "Inngest",
+        ],
+        image: "/photos/resonora.jpg",
+        githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
+        category: "mobile",
+      },
+    ],
   },
   tr: {
     pageTitle: "Projeler",
     pageDescription: "Projeler ve Teknolojiler Genel Bakış",
     categories: [
-      { key: 'all', label: 'Hepsi', icon: <FiCode /> },
-      { key: 'web', label: 'Web', icon: <FiCode /> },
-      { key: 'mobile', label: 'Mobil', icon: <FiSmartphone /> },
-      { key: 'api', label: 'API', icon: <FiDatabase /> }
+      { key: "all", label: "Hepsi", icon: <FiCode /> },
+      { key: "web", label: "Web", icon: <FiCode /> },
+      { key: "mobile", label: "Mobil", icon: <FiSmartphone /> },
+      { key: "api", label: "API", icon: <FiDatabase /> },
     ],
     noProjects: "Bu kategoride henüz proje yok.",
     projects: [
       {
         id: 1,
-        title: 'Not Defteri Uygulaması',
-        description: 'Stajım sırasında React Native (frontend), Node.js (backend) ve MongoDB (veritabanı) kullanarak çapraz platform bir not alma mobil uygulaması geliştirdim.',
-        technologies: ['React Native', 'Node.js', 'MongoDB'],
-        image: '/photos/notepad.png',
-        githubUrl: 'https://github.com/yakuphankucukkesim/NotePadProject',
-        category: 'mobile'
+        title: "Not Defteri Uygulaması",
+        description:
+          "Stajım sırasında React Native (frontend), Node.js (backend) ve MongoDB (veritabanı) kullanarak çapraz platform bir not alma mobil uygulaması geliştirdim.",
+        technologies: ["React Native", "Node.js", "MongoDB"],
+        image: "/photos/notepad.png",
+        githubUrl: "https://github.com/yakuphankucukkesim/NotePadProject",
+        category: "mobile",
       },
       {
         id: 2,
-        title: 'E-Ticaret Web Sitesi',
-        description: 'Stajım sırasında React.js (frontend), Nest.js (backend) ve MongoDB (veritabanı) kullanarak tam kapsamlı bir e-ticaret web uygulaması geliştirdim.',
-        technologies: ['React.js', 'Nest.js', 'MongoDB', 'Docker Swarm', 'TypeScript'],
-        image: '/photos/ecommercess.png',
-        githubUrl: 'https://github.com/yakuphankucukkesim/e-commerce-website.git',
-        category: 'web'
+        title: "E-Ticaret Web Sitesi",
+        description:
+          "Stajım sırasında React.js (frontend), Nest.js (backend) ve MongoDB (veritabanı) kullanarak tam kapsamlı bir e-ticaret web uygulaması geliştirdim.",
+        technologies: [
+          "React.js",
+          "Nest.js",
+          "MongoDB",
+          "Docker Swarm",
+          "TypeScript",
+        ],
+        image: "/photos/ecommercess.png",
+        githubUrl:
+          "https://github.com/yakuphankucukkesim/e-commerce-website.git",
+        category: "web",
       },
       {
         id: 3,
-        title: 'Portfolyo Web Sitesi',
-        description: 'Bu portfolyo web sitesi React, TypeScript ve modern web teknolojileri kullanılarak geliştirildi.',
-        technologies: ['React.js', 'TypeScript', 'CSS3', 'Framer Motion'],
-        image: '/photos/portfolio.png',
-        githubUrl: 'https://github.com/yakuphan/portfolio',
-        category: 'web'
+        title: "Portfolyo Web Sitesi",
+        description:
+          "Bu portfolyo web sitesi React, TypeScript ve modern web teknolojileri kullanılarak geliştirildi.",
+        technologies: ["React.js", "TypeScript", "CSS3", "Framer Motion"],
+        image: "/photos/portfolio.png",
+        githubUrl: "https://github.com/yakuphan/portfolio",
+        websiteUrl: "https://resonora-ai.vercel.app",
+        category: "web",
       },
       {
         id: 5,
-        title: 'Fitness Uygulaması',
-        description: 'Eat&Move, yapay zeka destekli bir spor uygulamasıdır; kişiselleştirilmiş antrenman ve beslenme sunar, sosyal özelliklerle kullanıcıları benzer spor tutkunlarıyla buluşturur.',
-        technologies: ['React Native', 'MongoDB', 'Python', 'Figma'],
-        image: '/photos/Team9.jpg',
-        githubUrl: 'https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041',
-        category: 'mobile'
+        title: "Fitness Uygulaması",
+        description:
+          "Eat&Move, yapay zeka destekli bir spor uygulamasıdır; kişiselleştirilmiş antrenman ve beslenme sunar, sosyal özelliklerle kullanıcıları benzer spor tutkunlarıyla buluşturur.",
+        technologies: ["React Native", "MongoDB", "Python", "Figma"],
+        image: "/photos/Team9.jpg",
+        githubUrl:
+          "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
+        category: "mobile",
       },
-    ]
-  }
+      {
+        id: 6,
+        title: "Yapay Zekâ Tabanlı Podcast Kırpıcı",
+        description:
+          "Resonora AI, podcast içeriklerini otomatik olarak kırpan ve altyazı ekleyen bir yapay zekâ aracıdır.",
+        technologies: [
+          "Python",
+          "Next.js",
+          "AWS",
+          "Stripe",
+          "Tailwind",
+          "TS",
+          "Modal",
+          "Inngest",
+        ],
+        image: "/photos/resonora.jpg",
+        githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
+        websiteUrl: "https://resonora-ai.vercel.app",
+        category: "mobile",
+      },
+    ],
+  },
 };
 
 const Projects: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const [filter, setFilter] = useState<string>('all');
+  const [filter, setFilter] = useState<string>("all");
 
-  const filteredProjects = filter === 'all'
-    ? t.projects
-    : t.projects.filter(project => project.category === filter);
+  const filteredProjects =
+    filter === "all"
+      ? t.projects
+      : t.projects.filter((project) => project.category === filter);
 
   return (
     <div className="projects">
@@ -137,7 +208,9 @@ const Projects: React.FC = () => {
             {t.categories.map((category) => (
               <button
                 key={category.key}
-                className={`filter-btn ${filter === category.key ? 'active' : ''}`}
+                className={`filter-btn ${
+                  filter === category.key ? "active" : ""
+                }`}
                 onClick={() => setFilter(category.key)}
               >
                 {category.icon}
@@ -166,18 +239,18 @@ const Projects: React.FC = () => {
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
                   <div className="project-links">
-  <a
-    href={project.githubUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="project-link github"
-  >
-    <FiGithub />
-  </a>
-</div>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link github"
+                    >
+                      <FiGithub />
+                    </a>
+                  </div>
                 </div>
               </div>
-              
+
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
