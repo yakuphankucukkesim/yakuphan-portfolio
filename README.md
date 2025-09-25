@@ -1,6 +1,3 @@
-# yakuphan-portfolio
-This portfolio website was developed using React, TypeScript, and modern web technologies.
-=======
 # Yakuphan Küçükkesim Portfolio
 
 A modern and responsive personal portfolio website. Built with React, TypeScript, and Framer Motion.
