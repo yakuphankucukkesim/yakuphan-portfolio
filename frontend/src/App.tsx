@@ -18,7 +18,6 @@ function App() {
               <Route path="/about" element={<About />} />
             </Routes>
           </main>
-          {/* Footer removed per request */}
         </div>
       </Router>
     </LanguageProvider>

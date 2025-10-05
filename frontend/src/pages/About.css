@@ -2,7 +2,6 @@
 
 .about-content { display: none; }
 
-/* Kişisel Bilgiler Bölümü */
 .personal-info-section {
   order: 2;
 }
@@ -172,7 +171,6 @@
   background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
 }
 
-/* Email özel stili */
 .social-links a[href*="mailto"]:hover {
   border-color: #ea4335;
 }
@@ -181,7 +179,6 @@
   background: linear-gradient(135deg, #ea4335 0%, #fbbc04 100%);
 }
 
-/* Hakkımda Metni Bölümü */
 .about-text-section {
   order: 1;
 }
@@ -202,9 +199,6 @@
   color: var(--text-secondary);
 }
 
-/* skills section removed */
-
-/* Deneyim Bölümü */
 .experience-section {
   margin-top: var(--spacing-xl);
   margin-bottom: var(--spacing-2xl);
@@ -253,10 +247,8 @@
   border: 1px solid var(--text-primary);
   border-radius: var(--border-radius-xl);
   padding: var(--spacing-lg);
-  /* remove heavy blur for performance */
-  /* backdrop-filter: blur(20px); */
   position: relative;
-  z-index: 1; /* keep cards above the central line */
+  z-index: 1;
   transition: all var(--transition-normal);
 }
 
@@ -310,7 +302,6 @@
   line-height: 1.6;
 }
 
-/* Eğitim Bölümü */
 .education-section {
   margin-bottom: var(--spacing-2xl);
 }
@@ -344,15 +335,11 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* increase specificity to ensure hover applies */
 .education-grid .education-card:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 20px 40px rgba(0,0,0,0.25) !important;
   border-color: var(--text-primary) !important;
 }
-
-/* match experience hover feel */
-/* transition is already defined above */
 
 .education-degree {
   font-size: var(--font-size-lg);
@@ -437,7 +424,6 @@
   display: inline-block;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .about-content {
     grid-template-columns: 1fr;

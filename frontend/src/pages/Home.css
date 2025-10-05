@@ -4,15 +4,13 @@
   background: var(--background-color);
 }
 
-/* Center the block between navbar and divider */
 .hero-band {
   display: grid;
   place-content: center;
-  min-height: calc(60vh - 80px); /* reduce vertical whitespace */
+  min-height: calc(60vh - 80px);
   padding: var(--spacing-md) 0;
 }
 
-/* Minimal header layout */
 .minimal-header {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -23,7 +21,6 @@
   margin: 0 auto;
 }
 
-/* reduce divider spacing inside hero */
 .hero-band .divider {
   margin: var(--spacing-md) 0;
 }
@@ -40,7 +37,7 @@
   font-weight: 700;
   color: #111;
   box-shadow: 0 2px 0 rgba(0,0,0,0.06);
-  overflow: hidden; /* clip image to border */
+  overflow: hidden; 
 }
 
 .minimal-avatar img,
@@ -72,7 +69,6 @@
   padding: var(--spacing-md) 0;
 }
 
-/* Bracket-style links and coffee button to mimic reference */
 .at-links {
   display: flex;
   gap: var(--spacing-lg);
@@ -127,7 +123,6 @@
   border-radius: 6px;
 }
 
-/* Add extra spacing below projects divider */
 .projects-divider {
   margin-top: 0;
 }
@@ -153,10 +148,8 @@
   text-decoration: none;
 }
 
-/* Videos carousel */
 .videos-section { margin-top: var(--spacing-xl); margin-bottom: var(--spacing-2xl); }
 
-/* bottom spacer matching site background */
 .page-bottom-spacer {
   height: 100px;
   background: var(--background-color);

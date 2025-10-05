@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
-import { FiMenu, FiX } from 'react-icons/fi';
-import './Navbar.css';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
+import { FiMenu, FiX } from "react-icons/fi";
+import "./Navbar.css";
 
 const translations = {
   en: {
-    homepage: 'Homepage',
-    about: 'About'
+    homepage: "Homepage",
+    about: "About",
   },
   tr: {
-    homepage: 'Anasayfa',
-    about: 'Hakkımda'
-  }
+    homepage: "Anasayfa",
+    about: "Hakkımda",
+  },
 };
 
 const Navbar: React.FC = () => {
@@ -24,8 +24,8 @@ const Navbar: React.FC = () => {
   const t = translations[language];
 
   const navItems = [
-    { path: '/', label: t.homepage },
-    { path: '/about', label: t.about },
+    { path: "/", label: t.homepage },
+    { path: "/about", label: t.about },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -41,26 +41,27 @@ const Navbar: React.FC = () => {
               <li key={item.path} className="nav-item">
                 <Link
                   to={item.path}
-                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                  className={`nav-link ${
+                    location.pathname === item.path ? "active" : ""
+                  }`}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          {/* Dil seçici */}
           <div className="language-switcher">
             <button
-              onClick={() => setLanguage('en')}
-              className={`lang-pill${language === 'en' ? ' active' : ''}`}
+              onClick={() => setLanguage("en")}
+              className={`lang-pill${language === "en" ? " active" : ""}`}
               aria-label="Switch to English"
             >
               <span className="flag">🇬🇧</span>
               <span className="lang-text">English</span>
             </button>
             <button
-              onClick={() => setLanguage('tr')}
-              className={`lang-pill${language === 'tr' ? ' active' : ''}`}
+              onClick={() => setLanguage("tr")}
+              className={`lang-pill${language === "tr" ? " active" : ""}`}
               aria-label="Switch to Turkish"
             >
               <span className="flag">🇹🇷</span>
@@ -74,9 +75,9 @@ const Navbar: React.FC = () => {
         </button>
 
         <motion.div
-          className={`navbar-mobile ${isOpen ? 'open' : ''}`}
+          className={`navbar-mobile ${isOpen ? "open" : ""}`}
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
+          animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
           transition={{ duration: 0.3 }}
         >
           <ul className="navbar-mobile-nav">
@@ -84,25 +85,33 @@ const Navbar: React.FC = () => {
               <li key={item.path} className="nav-item">
                 <Link
                   to={item.path}
-                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                  className={`nav-link ${
+                    location.pathname === item.path ? "active" : ""
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-            {/* Mobilde de dil seçici */}
-            <li style={{ marginTop: 12, display: 'flex', gap: 8, justifyContent: 'center' }}>
+            <li
+              style={{
+                marginTop: 12,
+                display: "flex",
+                gap: 8,
+                justifyContent: "center",
+              }}
+            >
               <button
-                onClick={() => setLanguage('en')}
-                className={`lang-btn${language === 'en' ? ' active' : ''}`}
+                onClick={() => setLanguage("en")}
+                className={`lang-btn${language === "en" ? " active" : ""}`}
                 aria-label="Switch to English"
               >
                 EN
               </button>
               <button
-                onClick={() => setLanguage('tr')}
-                className={`lang-btn${language === 'tr' ? ' active' : ''}`}
+                onClick={() => setLanguage("tr")}
+                className={`lang-btn${language === "tr" ? " active" : ""}`}
                 aria-label="Switch to Turkish"
               >
                 TR
