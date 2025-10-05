@@ -8,6 +8,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="theme-minimal">
+      <App />
+    </div>
   </React.StrictMode>
 );

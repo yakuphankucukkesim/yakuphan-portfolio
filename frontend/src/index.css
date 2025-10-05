@@ -57,6 +57,61 @@ body {
   color: var(--text-primary);
   background: var(--background-color);
   overflow-x: hidden;
+  overflow-y: auto; /* show scrollbar only when content overflows */
+}
+
+
+/* Minimal light theme overrides */
+.theme-minimal {
+  --primary-color: #111111;
+  --secondary-color: #222222;
+  --accent-color: #e0b100;
+  --background-color: #f6f1e4; /* paper-like */
+  --surface-color: #ffffff;
+  --card-bg: var(--background-color);
+  --text-primary: #1a1a1a;
+  --text-secondary: #3a3a3a;
+  --text-muted: #777777;
+  --border-color: rgba(0, 0, 0, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --gradient-primary: none;
+  --gradient-secondary: none;
+  --gradient-accent: none;
+}
+
+/* Remove gradient text styles under minimal theme */
+.theme-minimal .page-title,
+.theme-minimal .section-title,
+.theme-minimal .hero-title {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: inherit;
+  background-clip: initial;
+  color: var(--text-primary);
+}
+
+/* Ensure sections and cards share navbar/page background */
+.theme-minimal .card,
+.theme-minimal .feature-card,
+.theme-minimal .skill-category,
+.theme-minimal .timeline-content,
+.theme-minimal .education-card,
+.theme-minimal .language-card {
+  background: var(--background-color) !important;
+  backdrop-filter: none;
+}
+
+/* Simple dividers and content width helpers for minimal look */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: var(--spacing-xl) 0;
+}
+
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
 }
 
 /* Typography */
@@ -362,20 +417,25 @@ a:hover {
   animation: fadeInRight 0.6s ease-out;
 }
 
-/* Scrollbar */
+/* subtle language change fade */
+.language-fade-en, .language-fade-tr { transition: opacity 0.25s ease; }
+.language-fade-en { opacity: 1; }
+.language-fade-tr { opacity: 1; }
+
+/* Custom colorful scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface-color);
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gradient-primary);
-  border-radius: var(--border-radius-md);
+  background: black;
+  border-radius: black;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gradient-secondary);
+  background: black;
 }

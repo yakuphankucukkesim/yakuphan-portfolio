@@ -8,15 +8,11 @@ import './Navbar.css';
 const translations = {
   en: {
     homepage: 'Homepage',
-    about: 'About',
-    projects: 'Projects',
-    contact: 'Contact'
+    about: 'About'
   },
   tr: {
     homepage: 'Anasayfa',
-    about: 'Hakkımda',
-    projects: 'Projeler',
-    contact: 'İletişim'
+    about: 'Hakkımda'
   }
 };
 
@@ -30,8 +26,6 @@ const Navbar: React.FC = () => {
   const navItems = [
     { path: '/', label: t.homepage },
     { path: '/about', label: t.about },
-    { path: '/projects', label: t.projects },
-    { path: '/contact', label: t.contact },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -39,15 +33,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="navbar-brand">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Yakuphan Küçükkesim
-          </motion.div>
-        </Link>
+        <div className="navbar-brand" />
 
         <div className="navbar-menu">
           <ul className="navbar-nav">
@@ -66,17 +52,19 @@ const Navbar: React.FC = () => {
           <div className="language-switcher">
             <button
               onClick={() => setLanguage('en')}
-              className={`lang-btn${language === 'en' ? ' active' : ''}`}
+              className={`lang-pill${language === 'en' ? ' active' : ''}`}
               aria-label="Switch to English"
             >
-              EN
+              <span className="flag">🇬🇧</span>
+              <span className="lang-text">English</span>
             </button>
             <button
               onClick={() => setLanguage('tr')}
-              className={`lang-btn${language === 'tr' ? ' active' : ''}`}
+              className={`lang-pill${language === 'tr' ? ' active' : ''}`}
               aria-label="Switch to Turkish"
             >
-              TR
+              <span className="flag">🇹🇷</span>
+              <span className="lang-text">Türkçe</span>
             </button>
           </div>
         </div>

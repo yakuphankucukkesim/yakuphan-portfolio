@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FiDownload, FiMail, FiGithub, FiLinkedin, FiMapPin, FiUser } from 'react-icons/fi';
+import { motion, useReducedMotion } from 'framer-motion';
+// Reduced imports; icons not needed after simplification
 import { useLanguage } from '../contexts/LanguageContext';
 import './About.css';
 
@@ -8,12 +8,7 @@ const translations = {
   en: {
     pageTitle: "About me",
     pageDescription: "Detailed information about my software development passion and experience",
-    hello: "Hello!",
-    aboutText: [
-      "I’m Yakuphan Küçükkesim, a passionate developer with experience in creating innovative and user-friendly web and mobile applications. I enjoy building projects that combine modern technologies with practical solutions.",
-      "While I mainly work with React, Node.js, and MongoDB, I also have experience in mobile app development, data analysis, and backend systems. I focus on learning continuously and applying best practices to write clean, maintainable, and scalable code in every project.",
-      "I value collaboration and enjoy contributing to team projects. By leveraging Agile methodologies, I aim to deliver solutions that effectively meet user needs while exploring new technologies and approaches."
-    ],
+    // Intro text removed to simplify page per new design
     skillsTitle: "Skills",
     skills: [
       { category: "Programming Languages", items: ["JavaScript", "TypeScript", "Python", "Java", "C++", "PHP"] },
@@ -59,12 +54,7 @@ const translations = {
   tr: {
     pageTitle: "Hakkımda",
     pageDescription: "Yazılım geliştirme tutkum ve deneyimlerim hakkında detaylı bilgi",
-    hello: "Merhaba!",
-    aboutText: [
-      "Ben Yakuphan Küçükkesim, yenilikçi ve kullanıcı dostu web ve mobil uygulamalar geliştirme konusunda deneyimli, tutkulu bir geliştiriciyim. Modern teknolojilerle pratik çözümler üreten projeler geliştirmekten keyif alıyorum.",
-      "Çoğunlukla React, Node.js ve MongoDB ile çalışıyorum; ayrıca mobil uygulama geliştirme, veri analizi ve backend sistemlerinde de deneyimim var. Her projede temiz, sürdürülebilir ve ölçeklenebilir kod yazmak için en iyi uygulamaları kullanmaya ve sürekli öğrenmeye odaklanıyorum.",
-      "Takım çalışmasına değer veriyor ve ekip projelerine katkı sağlamaktan hoşlanıyorum. Agile metodolojileriyle kullanıcı ihtiyaçlarını karşılayan çözümler sunmayı ve yeni teknolojileri keşfetmeyi hedefliyorum."
-    ],
+    // Intro text removed to simplify page per new design
     skillsTitle: "Yetenekler",
     skills: [
       { category: "Programlama Dilleri", items: ["JavaScript", "TypeScript", "Python", "Java", "C++", "PHP"] },
@@ -112,121 +102,27 @@ const translations = {
 const About: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const reduceMotion = useReducedMotion();
 
-  const handleCVDownload = () => {
-    window.open('/cv.pdf', '_blank');
-  };
+  // No personal card / CV button in minimal layout
 
   return (
     <div className="about">
-      <div className="container">
+      <div className="container-narrow">
         <motion.div
-          className="page-header"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h1 className="page-title">{t.pageTitle}</h1>
-          <p className="page-description">{t.pageDescription}</p>
-        </motion.div>
-
-        <div className="about-content">
-          {/* Kişisel Bilgiler */}
-          <motion.div
-            className="personal-info-section"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="personal-card">
-              <div className="avatar-section">
-                <div className="avatar">
-                  <div className="avatar-placeholder">YK</div>
-                </div>
-                <button onClick={handleCVDownload} className="cv-button">
-                  <FiDownload /> {t.downloadCV}
-                </button>
-              </div>
-              
-              <div className="info-details">
-                <div className="info-item">
-                  <FiUser className="info-icon" />
-                  <span>Yakuphan Küçükkesim</span>
-                </div>
-                <div className="info-item">
-                  <FiMapPin className="info-icon" />
-                  <span>İzmir, Turkey</span>
-                </div>
-                <div className="info-item">
-                  <FiMail className="info-icon" />
-                  <span>yakuphann@icloud.com</span>
-                </div>
-              </div>
-
-              <div className="social-links">
-                <a href="https://github.com/yakuphankucukkesim" target="_blank" rel="noopener noreferrer">
-                  <FiGithub />
-                </a>
-                <a href="https://linkedin.com/in/yakuphan" target="_blank" rel="noopener noreferrer">
-                  <FiLinkedin />
-                </a>
-                <a href="mailto:yakuphann@icloud.com">
-                  <FiMail />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Hakkımda Metni */}
-          <motion.div
-            className="about-text-section"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h2>{t.hello} <span className="wave-emoji">✋</span></h2>
-            {t.aboutText.map((text, idx) => (
-              <p key={idx}>{text}</p>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Yetenekler */}
-        <motion.div
-          className="skills-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <h2 className="section-title">{t.skillsTitle}</h2>
-          <div className="skills-grid">
-            {t.skills.map((skillGroup, index) => (
-              <motion.div
-                key={skillGroup.category}
-                className="skill-category"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              >
-                <h3 className="skill-category-title">{skillGroup.category}</h3>
-                <div className="skill-items">
-                  {skillGroup.items.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="skill-item">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          {/* About hero and skills removed per request */}
 
         {/* Deneyim */}
         <motion.div
           className="experience-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5 }}
+          viewport={{ once: true, margin: '-50px' }}
         >
           <h2 className="section-title">{t.experiencesTitle}</h2>
           <div className="timeline">
@@ -234,12 +130,13 @@ const About: React.FC = () => {
               <motion.div
                 key={index}
                 className="timeline-item"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
+                initial={reduceMotion ? false : { opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.45 }}
+                viewport={{ once: true, margin: '-50px' }}
               >
                 <div className="timeline-content">
-                  <h3 className="timeline-title">{exp.title}</h3>
+                  <h3 className="timeline-company">{exp.title}</h3>
                   <p className="timeline-company">{exp.company}</p>
                   <p className="timeline-period">{exp.period}</p>
                   <p className="timeline-description">{exp.description}</p>
@@ -249,12 +146,14 @@ const About: React.FC = () => {
           </div>
         </motion.div>
 
+        <hr className="divider" />
         {/* Eğitim */}
         <motion.div
           className="education-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5 }}
+          viewport={{ once: true, margin: '-50px' }}
         >
           <h2 className="section-title">{t.educationTitle}</h2>
           <div className="education-grid">
@@ -266,8 +165,8 @@ const About: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
               >
-                <h3 className="education-degree">{edu.degree}</h3>
-                <p className="education-school">{edu.school}</p>
+                <h3 className="education-school">{edu.school}</h3>
+                <p className="education-degree">{edu.degree}</p>
                 <p className="education-location">{edu.location}</p>
                 <p className="education-period">{edu.period}</p>
                 <p className="education-description">{edu.description}</p>
@@ -276,34 +175,7 @@ const About: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Dil Yetenekleri */}
-        <motion.div
-          className="language-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-        >
-          <h2 className="section-title">{t.languagesTitle}</h2>
-          <div className="language-grid">
-            <motion.div
-              className="language-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.8 }}
-            >
-              <h3 className="language-name">{t.turkish}</h3>
-              <p className="language-level">{t.turkishLevel}</p>
-            </motion.div>
-            <motion.div
-              className="language-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 2.0 }}
-            >
-              <h3 className="language-name">{t.english}</h3>
-              <p className="language-level">{t.englishLevel}</p>
-            </motion.div>
-          </div>
+        <div className="page-bottom-spacer" />
         </motion.div>
       </div>
     </div>

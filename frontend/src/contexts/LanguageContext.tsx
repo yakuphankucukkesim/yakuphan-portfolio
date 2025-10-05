@@ -18,7 +18,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguage] = useState<Language>('en');
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
-      {children}
+      <div className={`language-fade-${language}`}>{children}</div>
     </LanguageContext.Provider>
   );
 };
