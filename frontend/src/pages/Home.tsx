@@ -16,7 +16,7 @@ const translations = {
   en: {
     title: "Yakuphan Küçükkesim",
     intro:
-      "Hi, my name is Yakuphan and I'm a Software Developer from Turkey. I build practical, user-friendly full-stack websites and mobile apps. I care about clean, scalable code and good collaboration.",
+      "Hi, my name is Yakuphan and I'm a Software Developer from Turkiye. I build practical, user-friendly full-stack websites and mobile apps. I care about clean, scalable code and good collaboration.",
     actions: {
       github: "github",
       email: "email",

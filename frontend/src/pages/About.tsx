@@ -17,7 +17,7 @@ const translations = {
       {
         title: "Full-Stack Developer Intern",
         company: "Huawei",
-        period: "Aug 2023 - Aug 2023",
+        period: "Aug 2023 (1 month)",
         description:
           "Developed a cross-platform note-taking mobile application using React Native, Node.js, and MongoDB.",
       },
@@ -27,7 +27,7 @@ const translations = {
       {
         degree: "B.Sc. in Information Systems and Technologies",
         school: "Bilkent University",
-        location: "Ankara, Turkey",
+        location: "Ankara, Turkiye",
         period: "2019 - 2025",
         description:
           "Object-Oriented Programming, Data Structures and Algorithms, Computer Networks (Cisco CCNA), Web Technologies, Database Management Systems, Operating Systems, Software Engineering, Mobile Application Development, Network Security",
@@ -47,7 +47,7 @@ const translations = {
       {
         title: "Full-Stack Developer Stajyeri",
         company: "Huawei",
-        period: "Ağustos 2023 - Ağustos 2023",
+        period: "Ağustos 2023 (1 ay)",
         description:
           "React Native, Node.js ve MongoDB kullanarak çapraz platform bir not alma mobil uygulaması geliştirdim.",
       },
