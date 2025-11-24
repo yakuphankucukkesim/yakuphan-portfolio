@@ -165,6 +165,18 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
       websiteUrl:
         "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
     },
+    {
+      title: "Screen Break: A Mobile App Enhancing Family Communication",
+      description:
+        "A mobile application developed for Sivas Buruciye Science and Art Center, designed to encourage families to reduce screen time and spend quality time together.",
+      image: "/photos/buruciye.jpg",
+    },
+    {
+      title: "Mobile Cryptography Puzzle Game",
+      description:
+        "An interactive mobile game that teaches users basic encryption methods and the history of cryptography through an engaging space-themed narrative. Users progress by decoding encrypted messages on different planets to build their own space base.",
+      image: "/photos/kripto.jpg",
+    },
   ];
 
   const projectsTr: ProjectItem[] = [
@@ -212,6 +224,18 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
       image: "/photos/Team9.jpg",
       websiteUrl:
         "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
+    },
+    {
+      title: "Ekran Molası: Aile İçi İletişimi Artıran Mobil Uygulama",
+      description:
+        "Sivas Buruciye Bilim ve Sanat Merkezi için geliştirilen, ailelerin ekran başında geçirdikleri süreyi azaltıp kaliteli zaman geçirmelerini teşvik eden bir mobil uygulama.",
+      image: "/photos/buruciye.jpg",
+    },
+    {
+      title: "Mobil Kriptografi Bulmaca Oyunu",
+      description:
+        "Kullanıcılara temel şifreleme yöntemlerini ve kriptoloji tarihini, eğlenceli bir uzay hikayesi kurgusuyla öğreten interaktif bir mobil oyun uygulaması. Kullanıcılar, farklı gezegenlerdeki şifreli mesajları çözerek ilerler ve kendi uzay üslerini kurar",
+      image: "/photos/kripto.jpg",
     },
   ];
 
