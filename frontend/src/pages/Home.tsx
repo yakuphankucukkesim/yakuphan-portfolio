@@ -131,7 +131,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Resonora.ai",
       description:
-        "Built an AI Podcast Clipping: Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest (2025)",
+        "Built an AI Podcast Clipping. Using Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest",
       image: "/photos/resonora.png",
       githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
       websiteUrl: "https://resonora-ai.vercel.app",
@@ -139,7 +139,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Real Estate Platform",
       description:
-        "Build a scalable Real Estate app with Next.js, Node.js, AWS (2025)",
+        "Build a scalable Real Estate app with Next.js, Node.js, AWS",
       image: "/photos/realestate.png",
       githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
     },
@@ -179,7 +179,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Resonora.ai",
       description:
-        "Yapay zekâ ile podcast kırpma: Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest (2025)",
+        "Yapay zekâ ile podcast kırpma uygulaması. Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest ile geliştirildi.",
       image: "/photos/resonora.png",
       githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
       websiteUrl: "https://resonora-ai.vercel.app",
@@ -187,7 +187,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Gayrimenkul Platformu",
       description:
-        "Next.js, Node.js ve AWS ile ölçeklenebilir bir emlak uygulaması (2025)",
+        "Next.js, Node.js ve AWS ile geliştirilen bir emlak platformu",
       image: "/photos/realestate.png",
       githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
     },
