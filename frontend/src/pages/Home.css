@@ -38,6 +38,12 @@
   color: #111;
   box-shadow: 0 2px 0 rgba(0,0,0,0.06);
   overflow: hidden; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.minimal-avatar:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
 }
 
 .minimal-avatar img,
@@ -54,11 +60,14 @@
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.02em;
 }
 
 .minimal-intro {
   font-size: var(--font-size-lg);
-  color: black;
+  color: #333;
+  line-height: 1.6;
+  margin-top: var(--spacing-sm);
   max-width: 820px;
 }
 
@@ -84,6 +93,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.at-bracket-link:hover {
+  color: var(--accent-color);
 }
 
 .at-bracket-link::before,

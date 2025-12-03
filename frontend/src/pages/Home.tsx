@@ -16,7 +16,7 @@ const translations = {
   en: {
     title: "Yakuphan Küçükkesim",
     intro:
-      "Hi, my name is Yakuphan and I'm a Software Developer from Turkiye. I build practical, user-friendly full-stack websites and mobile apps. I care about clean, scalable code and good collaboration.",
+      "Information Systems and Technologies graduate. Passionate about technology, eager to learn, and always curious about emerging innovations.",
     actions: {
       github: "github",
       email: "email",
@@ -28,7 +28,7 @@ const translations = {
   tr: {
     title: "Yakuphan Küçükkesim",
     intro:
-      "Merhaba, ben Yakuphan. Türkiye’den bir Yazılım Geliştiricisiyim. Kullanıcı dostu, pratik full-stack web siteleri ve mobil uygulamalar geliştiriyorum. Temiz ve ölçeklenebilir koda, ayrıca iyi ekip çalışmasına önem veririm.",
+      "Bilişim Sistemleri ve Teknolojileri mezunu. Teknolojiye tutkulu, öğrenmeye istekli ve gelişen yeniliklere karşı her zaman meraklı.",
     actions: {
       github: "github",
       email: "email",
@@ -131,7 +131,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Resonora.ai",
       description:
-        "Built an AI Podcast Clipping. Using Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest",
+        "Built an AI Podcast Clipping. Using Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest.",
       image: "/photos/resonora.png",
       githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
       websiteUrl: "https://resonora-ai.vercel.app",
@@ -139,7 +139,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Real Estate Platform",
       description:
-        "Build a scalable Real Estate app with Next.js, Node.js, AWS",
+        "Build a scalable Real Estate app with Next.js, Node.js, AWS.",
       image: "/photos/realestate.png",
       githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
     },
@@ -191,7 +191,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Resonora.ai",
       description:
-        "Yapay zekâ ile podcast kırpma uygulaması. Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest ile geliştirildi.",
+        "Yapay zeka ile podcast kırpma uygulaması. Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest ile geliştirildi.",
       image: "/photos/resonora.png",
       githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
       websiteUrl: "https://resonora-ai.vercel.app",
@@ -199,7 +199,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Gayrimenkul Platformu",
       description:
-        "Next.js, Node.js ve AWS ile geliştirilen bir emlak platformu",
+        "Next.js, Node.js ve AWS ile geliştirilen bir emlak platformu.",
       image: "/photos/realestate.png",
       githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
     },
@@ -234,7 +234,7 @@ const RecentVideos: React.FC<{ title: string; language: string }> = ({
     {
       title: "Mobil Kriptografi Bulmaca Oyunu",
       description:
-        "Kullanıcılara temel şifreleme yöntemlerini ve kriptoloji tarihini, eğlenceli bir uzay hikayesi kurgusuyla öğreten interaktif bir mobil oyun uygulaması. Kullanıcılar, farklı gezegenlerdeki şifreli mesajları çözerek ilerler ve kendi uzay üslerini kurar",
+        "Kullanıcılara temel şifreleme yöntemlerini ve kriptoloji tarihini, eğlenceli bir uzay hikayesi kurgusuyla öğreten interaktif bir mobil oyun uygulaması. Kullanıcılar, farklı gezegenlerdeki şifreli mesajları çözerek ilerler ve kendi uzay üslerini kurar.",
       image: "/photos/kripto.jpg",
     },
   ];
