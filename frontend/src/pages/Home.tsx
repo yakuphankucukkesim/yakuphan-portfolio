@@ -14,28 +14,28 @@ import "./Home.css";
 
 const translations = {
   en: {
-    title: "Yakuphan Küçükkesim",
+    title: "yakuphan küçükkesim",
     intro:
-      "Information Systems and Technologies graduate. Passionate about technology, eager to learn, and always curious about emerging innovations.",
+      "information systems and technologies graduate. passionate about technology, eager to learn, and always curious about emerging innovations.",
     actions: {
       github: "github",
       email: "email",
       cv: "cv",
       linkedin: "linkedin",
     },
-    recent: "Projects",
+    recent: "projects",
   },
   tr: {
-    title: "Yakuphan Küçükkesim",
+    title: "yakuphan küçükkesim",
     intro:
-      "Bilişim Sistemleri ve Teknolojileri mezunu. Teknolojiye tutkulu, öğrenmeye istekli ve gelişen yeniliklere karşı her zaman meraklı.",
+      "bilişim sistemleri ve teknolojileri mezunu. teknolojiye tutkulu, öğrenmeye istekli ve gelişen yeniliklere karşı her zaman meraklı.",
     actions: {
       github: "github",
       email: "email",
       cv: "cv",
       linkedin: "linkedin",
     },
-    recent: "Projeler",
+    recent: "projeler",
   },
 };
 
@@ -43,271 +43,228 @@ const Home: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
 
+  const projects = language === "en" ? projectsEn : projectsTr;
+
   return (
     <div className="home">
-      <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+      <div className="container">
+        <motion.section
+          className="hero-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="hero-band">
-            <div className="minimal-header">
-              <div className="minimal-avatar">
-                <img
-                  src="/photos/pp.png"
-                  alt="Yakuphan profile"
-                  className="minimal-avatar-img"
-                />
-              </div>
-              <div>
-                <h1 className="minimal-title">{t.title}</h1>
-                <p className="minimal-intro">{t.intro}</p>
-              </div>
+          <div className="hero-header">
+            <div className="hero-logo">yk</div>
+            <div className="hero-content">
+              <h1>{t.title}</h1>
+              <p>{t.intro}</p>
             </div>
-            <hr className="divider projects-divider" />
           </div>
 
-          <div className="at-links">
-            <a
-              className="at-bracket-link"
-              href="https://github.com/yakuphankucukkesim"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiGithub /> {t.actions.github}
+          <div className="social-links">
+            <a href="https://github.com/yakuphankucukkesim" target="_blank" rel="noreferrer" className="social-link">
+              <FiGithub /> github
             </a>
-            <a className="at-bracket-link" href="mailto:yakuphann@icloud.com">
-              <FiMail /> {t.actions.email}
+            <a href="https://linkedin.com/in/yakuphan" target="_blank" rel="noreferrer" className="social-link">
+              <FiLinkedin /> linkedin
             </a>
-            <a
-              className="at-bracket-link"
-              href="/cv.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiFileText /> {t.actions.cv}
+            <a href="mailto:yakuphann@icloud.com" className="social-link">
+              <FiMail /> {language === "en" ? "e-mail" : "e-posta"}
             </a>
-            <a
-              className="at-bracket-link"
-              href="https://linkedin.com/in/yakuphan"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiLinkedin /> {t.actions.linkedin}
+            <a href="/cv.pdf" target="_blank" rel="noreferrer" className="social-link">
+              <FiFileText /> cv
             </a>
           </div>
-          <hr className="divider" />
-          <RecentVideos title={t.recent} language={language} />
-          <div className="page-bottom-spacer" />
-        </motion.div>
+        </motion.section>
+
+        <motion.section
+          className="projects-section"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title">{t.recent}</h2>
+          <div className="projects-list">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                className="project-item"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <div className="project-info">
+                  <span className="project-tag">{project.tag}</span>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+                <div className="project-links">
+                  {project.githubUrl && (
+                    <a href={project.githubUrl} target="_blank" rel="noreferrer" className="project-link" aria-label="GitHub">
+                      <FiGithub />
+                    </a>
+                  )}
+                  {project.websiteUrl && (
+                    <a href={project.websiteUrl} target="_blank" rel="noreferrer" className="project-link" aria-label="Website">
+                      <FiExternalLink />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
       </div>
     </div>
   );
 };
 
 export default Home;
+
 type ProjectItem = {
   title: string;
   description: string;
+  tag: string;
   image: string;
   githubUrl?: string;
   websiteUrl?: string;
 };
 
-const RecentVideos: React.FC<{ title: string; language: string }> = ({
-  title,
-  language,
-}) => {
-  const projectsEn: ProjectItem[] = [
-    {
-      title: "Portfolio Website",
-      description:
-        "This portfolio website was developed using React, TypeScript, and modern web technologies.",
-      image: "/photos/portfolio.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/yakuphan-portfolio",
-      websiteUrl: "https://yakuphankucukkesim.com",
-    },
-    {
-      title: "Resonora.ai",
-      description:
-        "Built an AI Podcast Clipping. Using Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest.",
-      image: "/photos/resonora.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
-      websiteUrl: "https://resonora-ai.vercel.app",
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "Build a scalable Real Estate app with Next.js, Node.js, AWS.",
-      image: "/photos/realestate.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
-    },
-    {
-      title: "E-commerce Website",
-      description:
-        "Developed a full-stack e-commerce web application during my internship using React.js (frontend), Nest.js (backend), and MongoDB (database).",
-      image: "/photos/ecommercess.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/e-commerce-website",
-    },
-    {
-      title: "Note-taking Mobile App",
-      description:
-        "Developed a cross-platform note-taking mobile application during my internship using React Native (frontend), Node.js (backend), and MongoDB (database).",
-      image: "/photos/notepad.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/notepad-project-main",
-    },
-    {
-      title: "Fitness Application",
-      description:
-        "Eat&Move is an AI-powered sports app that personalizes workouts and nutrition while fostering community through social features that connect users with like-minded fitness enthusiasts.",
-      image: "/photos/Team9.jpg",
-      websiteUrl:
-        "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
-    },
-    {
-      title: "Screen Break: A Mobile App Enhancing Family Communication",
-      description:
-        "A mobile application developed for Sivas Buruciye Science and Art Center, designed to encourage families to reduce screen time and spend quality time together.",
-      image: "/photos/buruciye.jpg",
-    },
-    {
-      title: "Mobile Cryptography Puzzle Game",
-      description:
-        "An interactive mobile game that teaches users basic encryption methods and the history of cryptography through an engaging space-themed narrative. Users progress by decoding encrypted messages on different planets to build their own space base.",
-      image: "/photos/kripto.jpg",
-    },
-  ];
+const projectsEn: ProjectItem[] = [
+  {
+    title: "portfolio website",
+    tag: "web app",
+    description: "developed this portfolio website using react, typescript, and modern web technologies.",
+    image: "/photos/portfolio.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/yakuphan-portfolio",
+    websiteUrl: "https://yakuphankucukkesim.com",
+  },
+  {
+    title: "serefmobilya.net",
+    tag: "web app",
+    description: "developed for şeref mobilya, this website was designed with a high-performance, seo-friendly, and ux-focused modern interface using react and tailwind css.",
+    image: "/photos/serefmobilya.png",
+    websiteUrl: "https://serefmobilya.net",
+  },
+  {
+    title: "resonora.ai",
+    tag: "ai / saas",
+    description: "built an ai podcast clipping tool using python, next.js, aws, stripe, tailwind, ts, modal, and inngest.",
+    image: "/photos/resonora.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
+    websiteUrl: "https://resonora-ai.vercel.app",
+  },
+  {
+    title: "real estate platform",
+    tag: "web app",
+    description: "built a scalable real estate app with next.js, node.js, and aws.",
+    image: "/photos/realestate.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
+  },
+  {
+    title: "e-commerce website",
+    tag: "full stack",
+    description: "developed a full-stack e-commerce web application with react.js, nest.js, and mongodb.",
+    image: "/photos/ecommercess.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/e-commerce-website",
+  },
+  {
+    title: "note-taking mobile app",
+    tag: "mobile app",
+    description: "developed a cross-platform note-taking mobile application with react native, node.js, and mongodb.",
+    image: "/photos/notepad.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/notepad-project-main",
+  },
+  {
+    title: "eat&move fitness app",
+    tag: "ai / mobile",
+    description: "built an ai-powered sports app that personalized workouts and nutrition with community social features.",
+    image: "/photos/Team9.jpg",
+    websiteUrl: "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
+  },
+  {
+    title: "screen break app",
+    tag: "mobile app",
+    description: "developed a mobile application for families to reduce screen time and spend quality time together.",
+    image: "/photos/buruciye.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/TubitakAile",
+  },
+  {
+    title: "cryptography puzzle game",
+    tag: "mobile game",
+    description: "created an interactive mobile game that taught users basic encryption methods and the history of cryptography.",
+    image: "/photos/kripto.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/kriptouzayussu-main",
+  },
+];
 
-  const projectsTr: ProjectItem[] = [
-    {
-      title: "Portfolyo Web Sitesi",
-      description:
-        "Bu portfolyo web sitesi React, TypeScript ve modern web teknolojileriyle geliştirildi.",
-      image: "/photos/portfolio.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/yakuphan-portfolio",
-      websiteUrl: "https://yakuphankucukkesim.com",
-    },
-    {
-      title: "Resonora.ai",
-      description:
-        "Yapay zeka ile podcast kırpma uygulaması. Python, Next.js, AWS, Stripe, Tailwind, TS, Modal, Inngest ile geliştirildi.",
-      image: "/photos/resonora.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
-      websiteUrl: "https://resonora-ai.vercel.app",
-    },
-    {
-      title: "Gayrimenkul Platformu",
-      description:
-        "Next.js, Node.js ve AWS ile geliştirilen bir emlak platformu.",
-      image: "/photos/realestate.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
-    },
-    {
-      title: "E-ticaret Web Sitesi",
-      description:
-        "Stajımda React.js, Nest.js ve MongoDB ile tam kapsamlı e-ticaret uygulaması geliştirdim.",
-      image: "/photos/ecommercess.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/e-commerce-website",
-    },
-    {
-      title: "Not Alma Mobil Uygulaması",
-      description:
-        "Stajımda React Native, Node.js ve MongoDB ile çapraz platform not alma uygulaması geliştirdim.",
-      image: "/photos/notepad.png",
-      githubUrl: "https://github.com/yakuphankucukkesim/notepad-project-main",
-    },
-    {
-      title: "Fitness Uygulaması",
-      description:
-        "Eat&Move: antrenman ve beslenmeyi kişiselleştiren; topluluk özellikleri sunan yapay zekâ destekli spor uygulaması.",
-      image: "/photos/Team9.jpg",
-      websiteUrl:
-        "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
-    },
-    {
-      title: "Ekran Molası: Aile İçi İletişimi Artıran Mobil Uygulama",
-      description:
-        "Sivas Buruciye Bilim ve Sanat Merkezi için geliştirilen, ailelerin ekran başında geçirdikleri süreyi azaltıp kaliteli zaman geçirmelerini teşvik eden bir mobil uygulama.",
-      image: "/photos/buruciye.jpg",
-    },
-    {
-      title: "Mobil Kriptografi Bulmaca Oyunu",
-      description:
-        "Kullanıcılara temel şifreleme yöntemlerini ve kriptoloji tarihini, eğlenceli bir uzay hikayesi kurgusuyla öğreten interaktif bir mobil oyun uygulaması. Kullanıcılar, farklı gezegenlerdeki şifreli mesajları çözerek ilerler ve kendi uzay üslerini kurar.",
-      image: "/photos/kripto.jpg",
-    },
-  ];
-
-  const videos = language === "tr" ? projectsTr : projectsEn;
-
-  const pageSize = 4;
-  const [page, setPage] = React.useState(1);
-  const totalPages = Math.max(1, Math.ceil(videos.length / pageSize));
-  const startIndex = (page - 1) * pageSize;
-  const current = videos.slice(startIndex, startIndex + pageSize);
-
-  const next = () => setPage((p) => (p % totalPages) + 1);
-  const prev = () => setPage((p) => ((p - 2 + totalPages) % totalPages) + 1);
-
-  return (
-    <div className="videos-section">
-      <div className="videos-header">
-        <h2 className="minimal-section-title">{title}</h2>
-        <div className="videos-controls">
-          <button className="nav-arrow" onClick={prev} aria-label="Previous">
-            <FiChevronLeft />
-          </button>
-          <span className="page-indicator">
-            {page} / {totalPages}
-          </span>
-          <button className="nav-arrow" onClick={next} aria-label="Next">
-            <FiChevronRight />
-          </button>
-        </div>
-      </div>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={page}
-          className="videos-grid"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.25 }}
-        >
-          {current.map((v) => (
-            <div key={v.title} className="video-card">
-              <img src={v.image} alt={v.title} />
-              <div className="video-meta">
-                <h3>{v.title}</h3>
-                <p>{v.description}</p>
-              </div>
-              <div className="video-actions">
-                {v.githubUrl && (
-                  <a
-                    href={v.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${v.title} GitHub`}
-                  >
-                    <FiGithub />
-                  </a>
-                )}
-                {v.websiteUrl && (
-                  <a
-                    href={v.websiteUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${v.title} Website`}
-                  >
-                    <FiExternalLink />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-};
+const projectsTr: ProjectItem[] = [
+  {
+    title: "portfolyo web sitesi",
+    tag: "web uygulaması",
+    description: "react, typescript ve modern web teknolojileriyle geliştirilen kişisel portfolyo.",
+    image: "/photos/portfolio.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/yakuphan-portfolio",
+    websiteUrl: "https://yakuphankucukkesim.com",
+  },
+  {
+    title: "serefmobilya.net",
+    tag: "web uygulaması",
+    description: "şeref mobilya için geliştirilen bu web sitesi, react ve tailwind css kullanılarak yüksek performanslı, seo uyumlu ve kullanıcı deneyimi odaklı modern bir kurumsal kimlik arayüzü olarak tasarlandı.",
+    image: "/photos/serefmobilya.png",
+    websiteUrl: "https://serefmobilya.net",
+  },
+  {
+    title: "resonora.ai",
+    tag: "yapay zeka / saas",
+    description: "yapay zeka podcast kırpma uygulaması. python ve next.js ile geliştirildi.",
+    image: "/photos/resonora.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/resonora-ai",
+    websiteUrl: "https://resonora-ai.vercel.app",
+  },
+  {
+    title: "gayrimenkul platformu",
+    tag: "web uygulaması",
+    description: "next.js, node.js ve aws ile modern emlak yönetim platformu.",
+    image: "/photos/realestate.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/real-estate",
+  },
+  {
+    title: "e-ticaret platformu",
+    tag: "full stack",
+    description: "react.js, nest.js ve mongodb ile tam kapsamlı e-ticaret platformu.",
+    image: "/photos/ecommercess.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/e-commerce-website",
+  },
+  {
+    title: "not alma uygulaması",
+    tag: "mobil uygulama",
+    description: "react native ve node.js ile çapraz platform mobil not alma uygulaması.",
+    image: "/photos/notepad.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/notepad-project-main",
+  },
+  {
+    title: "eat&move fitness",
+    tag: "yapay zeka / mobil",
+    description: "yapay zeka destekli, sosyal özellikli antrenman ve beslenme uygulaması.",
+    image: "/photos/Team9.jpg",
+    websiteUrl: "https://www.ctis.bilkent.edu.tr/ctis_seniorProject.php?semester=31&id=5041",
+  },
+  {
+    title: "ekran molası uygulaması",
+    tag: "mobil uygulama",
+    description: "aile içi iletişimi artırmayı hedefleyen ekran süresi azaltma uygulaması.",
+    image: "/photos/buruciye.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/TubitakAile",
+  },
+  {
+    title: "kriptografi bulmaca oyunu",
+    tag: "mobil oyun",
+    description: "kullanıcılara şifreleme yöntemlerini öğreten interaktif bir mobil oyun.",
+    image: "/photos/kripto.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/kriptouzayussu-main",
+  },
+];

@@ -1,39 +1,26 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import { FiMenu, FiX } from "react-icons/fi";
 import "./Navbar.css";
 
-const translations = {
-  en: {
-    homepage: "Homepage",
-    about: "About",
-  },
-  tr: {
-    homepage: "Anasayfa",
-    about: "Hakkımda",
-  },
-};
-
 const Navbar: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const t = translations[language];
+  const { language, setLanguage } = useLanguage();
 
   const navItems = [
-    { path: "/", label: t.homepage },
-    { path: "/about", label: t.about },
+    { path: "/", label: language === "en" ? "home" : "ana sayfa" },
+    { path: "/about", label: language === "en" ? "about" : "hakkımda" },
   ];
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav className="navbar">
       <div className="container">
-        <div className="navbar-brand" />
+        <Link to="/" className="navbar-brand">
+          yakuphan
+        </Link>
 
         <div className="navbar-menu">
           <ul className="navbar-nav">
@@ -41,87 +28,88 @@ const Navbar: React.FC = () => {
               <li key={item.path} className="nav-item">
                 <Link
                   to={item.path}
-                  className={`nav-link ${
-                    location.pathname === item.path ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === item.path ? "active" : ""
+                    }`}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
+
           <div className="language-switcher">
             <button
-              onClick={() => setLanguage("en")}
-              className={`lang-pill${language === "en" ? " active" : ""}`}
-              aria-label="Switch to English"
+              className={`lang-pill ${language === "tr" ? "active" : ""}`}
+              onClick={() => setLanguage("tr")}
             >
-              <span className="flag">🇬🇧</span>
-              <span className="lang-text">English</span>
+              tr
             </button>
             <button
-              onClick={() => setLanguage("tr")}
-              className={`lang-pill${language === "tr" ? " active" : ""}`}
-              aria-label="Switch to Turkish"
+              className={`lang-pill ${language === "en" ? "active" : ""}`}
+              onClick={() => setLanguage("en")}
             >
-              <span className="flag">🇹🇷</span>
-              <span className="lang-text">Türkçe</span>
+              en
             </button>
           </div>
         </div>
 
-        <button className="navbar-toggle" onClick={toggleMenu}>
+        <button
+          className="navbar-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Navigation"
+        >
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
-
-        <motion.div
-          className={`navbar-mobile ${isOpen ? "open" : ""}`}
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <ul className="navbar-mobile-nav">
-            {navItems.map((item) => (
-              <li key={item.path} className="nav-item">
-                <Link
-                  to={item.path}
-                  className={`nav-link ${
-                    location.pathname === item.path ? "active" : ""
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li
-              style={{
-                marginTop: 12,
-                display: "flex",
-                gap: 8,
-                justifyContent: "center",
-              }}
-            >
-              <button
-                onClick={() => setLanguage("en")}
-                className={`lang-btn${language === "en" ? " active" : ""}`}
-                aria-label="Switch to English"
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage("tr")}
-                className={`lang-btn${language === "tr" ? " active" : ""}`}
-                aria-label="Switch to Turkish"
-              >
-                TR
-              </button>
-            </li>
-          </ul>
-        </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="navbar-mobile"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+          >
+            <ul className="navbar-mobile-nav">
+              {navItems.map((item) => (
+                <li key={item.path} className="nav-item">
+                  <Link
+                    to={item.path}
+                    className={`nav-link ${location.pathname === item.path ? "active" : ""
+                      }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="nav-item" style={{ marginTop: "1rem" }}>
+                <div style={{ display: "flex", gap: "1rem" }}>
+                  <button
+                    className={`lang-pill ${language === "tr" ? "active" : ""}`}
+                    onClick={() => {
+                      setLanguage("tr");
+                      setIsOpen(false);
+                    }}
+                  >
+                    tr
+                  </button>
+                  <button
+                    className={`lang-pill ${language === "en" ? "active" : ""}`}
+                    onClick={() => {
+                      setLanguage("en");
+                      setIsOpen(false);
+                    }}
+                  >
+                    en
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
-
 export default Navbar;
