@@ -1,13 +1,11 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import {
   FiGithub,
   FiLinkedin,
   FiMail,
   FiFileText,
-  FiChevronLeft,
-  FiChevronRight,
   FiExternalLink,
 } from "react-icons/fi";
 import "./Home.css";

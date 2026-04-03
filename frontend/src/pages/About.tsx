@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import "./About.css";
 
