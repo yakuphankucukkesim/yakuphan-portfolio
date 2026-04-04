@@ -148,6 +148,13 @@ const projectsEn: ProjectItem[] = [
     websiteUrl: "https://serefmobilya.net",
   },
   {
+    title: "kovan",
+    tag: "mobile app",
+    description: "kovan is a real-time collective photo-sharing platform for event attendees, built with react native.",
+    image: "/photos/kripto.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/kovan",
+  },
+  {
     title: "resonora.ai",
     tag: "ai / saas",
     description: "built an ai podcast clipping tool using python, next.js, aws, stripe, tailwind, ts, modal, and inngest.",
@@ -214,6 +221,13 @@ const projectsTr: ProjectItem[] = [
     description: "şeref mobilya için geliştirilen bu web sitesi, react ve tailwind css kullanılarak yüksek performanslı, seo uyumlu ve kullanıcı deneyimi odaklı modern bir kurumsal kimlik arayüzü olarak tasarlandı.",
     image: "/photos/serefmobilya.png",
     websiteUrl: "https://serefmobilya.net",
+  },
+  {
+    title: "kovan",
+    tag: "mobil uygulama",
+    description: "kovan, etkinlik katılımcıları için react native ile geliştirilmiş, gerçek zamanlı bir kolektif fotoğraf paylaşım platformudur.",
+    image: "/photos/kripto.jpg",
+    githubUrl: "https://github.com/yakuphankucukkesim/kovan",
   },
   {
     title: "resonora.ai",
