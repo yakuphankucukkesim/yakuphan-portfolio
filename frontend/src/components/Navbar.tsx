@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
-import { FiMenu, FiX } from "react-icons/fi";
+import { useTheme } from "../contexts/ThemeContext";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { language, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { path: "/", label: language === "en" ? "home" : "ana sayfa" },
@@ -37,29 +39,48 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          <div className="language-switcher">
+          <div className="navbar-actions">
             <button
-              className={`lang-pill ${language === "tr" ? "active" : ""}`}
-              onClick={() => setLanguage("tr")}
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
             >
-              tr
+              {theme === "light" ? <FiMoon /> : <FiSun />}
             </button>
-            <button
-              className={`lang-pill ${language === "en" ? "active" : ""}`}
-              onClick={() => setLanguage("en")}
-            >
-              en
-            </button>
+
+            <div className="language-switcher">
+              <button
+                className={`lang-pill ${language === "tr" ? "active" : ""}`}
+                onClick={() => setLanguage("tr")}
+              >
+                tr
+              </button>
+              <button
+                className={`lang-pill ${language === "en" ? "active" : ""}`}
+                onClick={() => setLanguage("en")}
+              >
+                en
+              </button>
+            </div>
           </div>
         </div>
 
-        <button
-          className="navbar-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Navigation"
-        >
-          {isOpen ? <FiX /> : <FiMenu />}
-        </button>
+        <div className="navbar-mobile-actions">
+          <button
+            className="theme-toggle mobile"
+            onClick={toggleTheme}
+            aria-label="Toggle Theme"
+          >
+            {theme === "light" ? <FiMoon /> : <FiSun />}
+          </button>
+          <button
+            className="navbar-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Navigation"
+          >
+            {isOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -84,25 +105,27 @@ const Navbar: React.FC = () => {
                 </li>
               ))}
               <li className="nav-item" style={{ marginTop: "1rem" }}>
-                <div style={{ display: "flex", gap: "1rem" }}>
-                  <button
-                    className={`lang-pill ${language === "tr" ? "active" : ""}`}
-                    onClick={() => {
-                      setLanguage("tr");
-                      setIsOpen(false);
-                    }}
-                  >
-                    tr
-                  </button>
-                  <button
-                    className={`lang-pill ${language === "en" ? "active" : ""}`}
-                    onClick={() => {
-                      setLanguage("en");
-                      setIsOpen(false);
-                    }}
-                  >
-                    en
-                  </button>
+                <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
+                    <button
+                      className={`lang-pill ${language === "tr" ? "active" : ""}`}
+                      onClick={() => {
+                        setLanguage("tr");
+                        setIsOpen(false);
+                      }}
+                    >
+                      tr
+                    </button>
+                    <button
+                      className={`lang-pill ${language === "en" ? "active" : ""}`}
+                      onClick={() => {
+                        setLanguage("en");
+                        setIsOpen(false);
+                      }}
+                    >
+                      en
+                    </button>
+                  </div>
                 </div>
               </li>
             </ul>
