@@ -3,7 +3,8 @@
   padding-bottom: 100px;
 }
 
-.experience-section, .education-section {
+.experience-section,
+.education-section {
   margin-bottom: 4rem;
 }
 
@@ -58,7 +59,6 @@
   line-height: 1.6;
 }
 
-/* Education */
 .education-grid {
   display: flex;
   flex-direction: column;
@@ -78,7 +78,8 @@
   margin-bottom: 0.25rem;
 }
 
-.education-period, .education-location {
+.education-period,
+.education-location {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.25rem;
