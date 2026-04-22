@@ -148,6 +148,13 @@ const projectsEn: ProjectItem[] = [
     websiteUrl: "https://serefmobilya.net",
   },
   {
+    title: "marketpulse-ai",
+    tag: "ai & saas tool",
+    description: "an autonomous market research agent that uses rag and ai agents to scrape reddit for user pain points and generate saas business models.",
+    image: "/photos/portfolio.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/marketpulse-ai",
+  },
+  {
     title: "kovan",
     tag: "mobile app",
     description: "kovan is a real-time collective photo-sharing platform for event attendees, built with react native.",
@@ -221,6 +228,13 @@ const projectsTr: ProjectItem[] = [
     description: "şeref mobilya için geliştirilen bu web sitesi, react ve tailwind css kullanılarak yüksek performanslı, seo uyumlu ve kullanıcı deneyimi odaklı modern bir kurumsal kimlik arayüzü olarak tasarlandı.",
     image: "/photos/serefmobilya.png",
     websiteUrl: "https://serefmobilya.net",
+  },
+  {
+    title: "marketpulse-ai",
+    tag: "yapay zeka & saas aracı",
+    description: "kullanıcı sorunlarını tespit etmek için reddit'i tarayan, rag ve yapay zeka ajanlarını kullanarak otomatik pazar araştırması ve saas iş modelleri üreten otonom bir sistem.",
+    image: "/photos/portfolio.png",
+    githubUrl: "https://github.com/yakuphankucukkesim/marketpulse-ai",
   },
   {
     title: "kovan",
