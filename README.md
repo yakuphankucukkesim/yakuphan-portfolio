@@ -1,41 +1,49 @@
-# yakuphan-portfolio
-This portfolio website was developed using React, TypeScript, and modern web technologies.
-=======
-# Yakuphan Küçükkesim Portfolio
+# 🚀 Yakuphan Küçükkesim | Portfolio
 
-A modern and responsive personal portfolio website. Built with React, TypeScript, and Framer Motion.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
-## 🚀 Demo
+A modern, responsive, and performance-oriented personal portfolio website. Built with React, TypeScript, and Framer Motion, this project is designed to showcase a software engineer's skills, projects, and experiences with a premium aesthetic.
 
-**Live Site**: [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
+🔗 **Live Demo:** [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
 
-## Features
-🎨 Modern and responsive design
-📱 Mobile friendly
-🎭 Framer Motion animations
-🌙 Dark theme
-📄 CV download option
-📧 Contact form
-🚀 Static site (fast loading)
+---
+
+## ✨ Features
+
+* 🎨 **Modern Design:** Sleek, minimalist, and user-centric UI.
+* 🎭 **Smooth Animations:** Powered by Framer Motion for high-quality transitions.
+* 📱 **Fully Responsive:** Optimized for Mobile (320px+), Tablet (768px+), and Desktop (1024px+).
+* 🌙 **Dark Theme:** Professional dark mode optimized for readability.
+* 📄 **CV Integration:** Direct option for visitors to view and download CV.
+* 📧 **Contact Form:** Integrated communication module for direct reach.
+* ⚡ **High Performance:** 95+ Lighthouse score with optimized bundle sizes.
+
+---
 
 ## 🛠️ Technologies
-Frontend: React 18, TypeScript, CSS3
-Animations: Framer Motion
-Icons: React Icons
-Routing: React Router DOM
-Hosting: Render.com
+
+- **Frontend:** React 18, TypeScript, CSS3
+- **Animations:** Framer Motion
+- **Icons:** React Icons
+- **Routing:** React Router DOM
+- **Hosting:** Render.com
+
+---
 
 ## 📁 Project Structure
 
-```
+```text
 frontend/
 ├── src/
-│   ├── components/     # Reusable components
-│   ├── pages/          # Page components
-│   ├── contexts/       # React contexts
-│   └── utils/          # Helper functions
-├── public/             # Static files
-└── build/              # Production build
+│   ├── components/    # Reusable UI components
+│   ├── pages/         # Page views (About, Projects, Contact)
+│   ├── contexts/      # React context providers
+│   └── utils/         # Helper functions & utilities
+├── public/            # Static assets
+└── build/             # Production build output
 ```
 
 ## 🚀 Local Development
@@ -47,7 +55,7 @@ frontend/
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yakuphan/yakuphan-portfolio.git
+git clone [https://github.com/yakuphan/yakuphan-portfolio.git](https://github.com/yakuphan/yakuphan-portfolio.git)
 cd yakuphan-portfolio
 
 # Go to frontend folder
@@ -139,9 +147,9 @@ This project is licensed under the MIT License.
 ## 📞 Contact
 
 - **Website**: [yakuphankucukkesim.com](https://yakuphankucukkesim.com)
-- **Email**: contact@yakuphankucukkesim.com
-- **GitHub**: [@yakuphan](https://github.com/yakuphan)
-- **LinkedIn**: [Yakuphan Kucukkesim](https://linkedin.com/in/yakuphan)
+- **Email**: yakuphann@icloud.com
+- **GitHub**: [@yakuphankucukkesim](https://github.com/yakuphankucukkesim)
+- **LinkedIn**: [yakuphan](https://linkedin.com/in/yakuphan)
 
 ---
 
